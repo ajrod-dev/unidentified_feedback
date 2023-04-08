@@ -1,0 +1,9 @@
+<div class="">
+	
+</div>
+
+<%= form_for(Feedback.new) do |f| %>
+	<%= f.text_field :recipient_handle , placeholder: 'arod-dev' %>
+	<%= f.text_field :text , placeholder: 'i hate you...' %>
+	<%= f.submit 'Tweet' %>
+<% end %>
