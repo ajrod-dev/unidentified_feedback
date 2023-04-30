@@ -41,6 +41,10 @@
         Send Feedback
       </button>
     </div>
+
+    <% if session[:tweet_url] %>
+      <p class="text-center mt-4" >Tweet Sent. <a href="<%= session[:tweet_url] %>" class="text-indigo-700" target="_blank">View It.</a></p>
+    <% end %>
   </div>
 <% end %>
 

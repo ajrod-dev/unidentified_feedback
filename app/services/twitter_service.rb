@@ -33,6 +33,11 @@ class TwitterService
     response = req.run
 
     if response.success?
+      tweet_id = JSON.parse(response.body)['data']['id']
+      tweet_url = "https://twitter.com/twitter/status/#{tweet_id}"
+      puts "#{tweet_id} , #{tweet_url}"
+      feedback.update(tweet_id: tweet_id, tweet_url: tweet_url)
+
       puts "Credentials work! Tweet:"
       puts JSON.pretty_generate(JSON.parse(response.body))
     else

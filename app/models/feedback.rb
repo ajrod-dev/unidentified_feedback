@@ -1,6 +1,6 @@
 class Feedback < ApplicationRecord
   before_create :sanitize
-  after_create :send_tweet
+  after_create :send_tweet 
 
   validates_presence_of :recipient_handle, message: "Cannot be blank. Need a recipient to send it to."
   validates_length_of :text, minimum: 1, maximum: 250
@@ -12,5 +12,7 @@ class Feedback < ApplicationRecord
   def send_tweet
     TwitterService.tweet!(self)
   end
+
+
 
 end
